@@ -58,38 +58,60 @@
             width: auto;
         }
 
- /* Header Menu in the Upper Right */
+/* Header Menu in the Upper Right */
         .header-right-menu {
             display: flex;
-            gap: 24px; /* Slightly wider spacing to match Divi's layout */
+            flex-wrap: wrap; /* Allows menu items to wrap to a new line if they run out of space */
+            gap: 24px; /* Standard spacing for desktop */
             list-style: none;
+            justify-content: flex-end;
         }
 
         .header-right-menu a {
-            /* Imports and uses 'Open Sans' with standard fallbacks */
             font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            color: #63758a; /* Charcoal gray matching your main site menu */
+            color: #63758a;
             text-decoration: none;
-            font-weight: 600; /* Semi-bold weight */
-            font-size: 18px; /* Exact font size used in your WordPress header */
+            font-weight: 600;
+            font-size: 14px; /* Default desktop size */
             letter-spacing: 0.5px;
+            white-space: nowrap; /* Prevents individual words within a menu item (like "Bruceb News") from breaking */
             transition: color 0.2s ease;
         }
 
         .header-right-menu a:hover {
-            color: #2e5278; /* Changes to your brand's deep blue on hover */
-            text-decoration: none; /* Keeps it clean without an underline on hover */
+            color: #2e5278;
+            text-decoration: none;
         }
 
-        /* --- FIXED NAVIGATION BUTTONS (TABS) --- */
-        .tab-navigation {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            background: #eaeaea;
-            padding: 8px;
-            border-radius: 6px;
-            margin-bottom: 25px;
+        /* --- MOBILE MENU OPTIMIZATIONS --- */
+        /* Targets screens narrower than 768px (tablets & phones) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stacks logo on top, menu directly underneath */
+                align-items: center;
+                gap: 15px; /* Adds space between the logo and the menu */
+                padding-bottom: 15px;
+            }
+
+            .header-right-menu {
+                justify-content: center; /* Centers the links on mobile */
+                gap: 14px; /* Tightens the spacing between menu links to fit smaller screens */
+                padding-left: 0;
+            }
+
+            .header-right-menu a {
+                font-size: 13px; /* Slightly reduces font size on mobile for a cleaner fit */
+            }
+        }
+
+        /* Targets very narrow phone screens (under 400px) */
+        @media (max-width: 400px) {
+            .header-right-menu {
+                gap: 10px; /* Further tightens link spacing so all 6 items fit comfortably */
+            }
+            .header-right-menu a {
+                font-size: 12px;
+            }
         }
 
         .tab-button {
