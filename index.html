@@ -286,8 +286,13 @@
             text-align: center;
         }
 
-        /* Add spacing underneath only when a logo is inside a card with other content */
+        /* Add spacing underneath only when the Bruceb logo is followed by other text content */
         .sidebar-card .sidebar-logo-ad {
+            margin-bottom: 0; /* Default to no extra margin for single-item cards like Amazon */
+        }
+
+        /* Target only the Bruceb card (which is the card containing the text sections) to apply the bottom margin */
+        .sidebar-card:nth-child(2) .sidebar-logo-ad {
             margin-bottom: 20px;
         }
 
