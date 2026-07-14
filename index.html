@@ -268,6 +268,7 @@
 
     <div class="container">
         
+        <!-- HEADER (Left: Branding Logo, Right: Menu) -->
         <header>
             <div class="header-left">
                 <a href="https://www.bruceb.com" class="logo-link">
@@ -286,6 +287,7 @@
             </nav>
         </header>
 
+        <!-- FIXED TAB NAVIGATION ROW -->
         <nav class="tab-navigation" aria-label="Favorites Categories">
             <button class="tab-button active" onclick="switchTab('top-sites')">Top Sites</button>
             <button class="tab-button" onclick="switchTab('news')">News</button>
@@ -311,8 +313,10 @@
 
         <div class="page-body">
             
+            <!-- LEFT MAIN CONTENT AREA (DYNAMIC TAB SECTIONS) -->
             <main class="main-content-area">
 
+                <!-- TAB: TOP SITES (8 Columns) -->
                 <div id="top-sites" class="tab-content active">
                     <div class="links-grid eight-cols">
                         <section class="category-card">
@@ -360,7 +364,7 @@
                             <ul class="link-list">
                                 <li><a href="https://mail.google.com" target="_blank">Google Gmail</a></li>
                                 <li><a href="https://outlook.live.com" target="_blank">Outlook.com</a></li>
-                                <li><a href="https://outlook.office.com" target="_blank">Microsoft 365 Webmail</a></li>
+                                <li><a href="https://outlook.office.com" target="_blank">Microsoft 365</a></li>
                                 <li><a href="https://mail.yahoo.com" target="_blank">Yahoo! Mail</a></li>
                             </ul>
                         </section>
@@ -371,8 +375,704 @@
                                 <li><a href="https://drive.google.com" target="_blank">Google Drive</a></li>
                                 <li><a href="https://onedrive.live.com" target="_blank">OneDrive</a></li>
                                 <li><a href="https://www.box.com" target="_blank">Box.com</a></li>
-                                <li><a href="https://admin.microsoft.com" target="_blank">Microsoft 365 Admin Portal</a></li>
+                                <li><a href="https://admin.microsoft.com" target="_blank">M365 Admin Portal</a></li>
                             </ul>
                         </section>
                         <section class="category-card">
                             <h2 class="category-title">Media</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.netflix.com" target="_blank">Netflix</a></li>
+                                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                                <li><a href="https://tv.apple.com" target="_blank">Apple TV+</a></li>
+                                <li><a href="https://www.disneyplus.com" target="_blank">Disney+</a></li>
+                                <li><a href="https://www.primevideo.com" target="_blank">Amazon PrimeVideo</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Travel</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
+                                <li><a href="https://maps.google.com" target="_blank">Google Maps</a></li>
+                                <li><a href="https://www.google.com/travel" target="_blank">Google Travel</a></li>
+                                <li><a href="https://weather.com" target="_blank">Weather Channel</a></li>
+                                <li><a href="https://www.yelp.com" target="_blank">Yelp</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: NEWS (4 Columns) -->
+                <div id="news" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">News</h2>
+                            <ul class="link-list">
+                                <li><a href="https://apnews.com" target="_blank">AP News</a></li>
+                                <li><a href="https://www.bbc.com/news" target="_blank">BBC News</a></li>
+                                <li><a href="https://www.cnn.com" target="_blank">CNN</a></li>
+                                <li><a href="https://www.foxnews.com" target="_blank">Fox News</a></li>
+                                <li><a href="https://news.google.com" target="_blank">Google News</a></li>
+                                <li><a href="https://www.theguardian.com" target="_blank">The Guardian</a></li>
+                                <li><a href="https://www.latimes.com" target="_blank">LA Times</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Regional & US</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.mercurynews.com" target="_blank">Mercury News</a></li>
+                                <li><a href="https://www.nbcnews.com" target="_blank">NBC News</a></li>
+                                <li><a href="https://www.nytimes.com" target="_blank">New York Times</a></li>
+                                <li><a href="https://www.newsday.com" target="_blank">Newsday</a></li>
+                                <li><a href="https://www.pressdemocrat.com" target="_blank">Santa Rosa Press Democrat</a></li>
+                                <li><a href="https://www.sfgate.com" target="_blank">SF Gate</a></li>
+                                <li><a href="https://www.wsj.com" target="_blank">Wall Street Journal</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Sports</h2>
+                            <ul class="link-list">
+                                <li><a href="https://bleacherreport.com" target="_blank">Bleacher Report</a></li>
+                                <li><a href="https://www.espn.com" target="_blank">ESPN</a></li>
+                                <li><a href="https://www.foxsports.com" target="_blank">Fox Sports</a></li>
+                                <li><a href="https://www.mlb.com" target="_blank">MLB</a></li>
+                                <li><a href="https://www.nba.com" target="_blank">NBA</a></li>
+                                <li><a href="https://www.nfl.com" target="_blank">NFL</a></li>
+                                <li><a href="https://www.sportsillustrated.com" target="_blank">Sports Illustrated</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Politics</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.axios.com" target="_blank">Axios</a></li>
+                                <li><a href="https://www.dailykos.com" target="_blank">Daily Kos</a></li>
+                                <li><a href="https://electoral-vote.com" target="_blank">Electoral-Vote.com</a></li>
+                                <li><a href="https://fivethirtyeight.com" target="_blank">FiveThirtyEight</a></li>
+                                <li><a href="https://www.politico.com" target="_blank">Politico</a></li>
+                                <li><a href="https://www.realclearpolitics.com" target="_blank">RealClearPolitics</a></li>
+                                <li><a href="https://www.vox.com" target="_blank">Vox</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: SEARCH & AI -->
+                <div id="search-ai" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Search Engine</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                                <li><a href="https://www.bing.com" target="_blank">Bing</a></li>
+                                <li><a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a></li>
+                                <li><a href="https://search.yahoo.com" target="_blank">Yahoo!</a></li>
+                                <li><a href="https://www.wolframalpha.com" target="_blank">Wolfram Alpha</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Core AI Platforms</h2>
+                            <ul class="link-list">
+                                <li><a href="https://chatgpt.com" target="_blank">ChatGPT</a></li>
+                                <li><a href="https://gemini.google.com" target="_blank">Google Gemini</a></li>
+                                <li><a href="https://claude.ai" target="_blank">Anthropic Claude</a></li>
+                                <li><a href="https://copilot.microsoft.com" target="_blank">Microsoft CoPilot</a></li>
+                                <li><a href="https://www.deepseek.com" target="_blank">DeepSeek</a></li>
+                                <li><a href="https://www.meta.ai" target="_blank">Meta.AI</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">AI Research & Notes</h2>
+                            <ul class="link-list">
+                                <li><a href="https://notebooklm.google" target="_blank">NotebookLM</a></li>
+                                <li><a href="https://www.perplexity.ai" target="_blank">Perplexity</a></li>
+                                <li><a href="https://consensus.app" target="_blank">Consensus</a></li>
+                                <li><a href="https://www.notion.so" target="_blank">Notion</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">AI Images</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.adobe.com/products/firefly.html" target="_blank">Adobe Firefly</a></li>
+                                <li><a href="https://www.canva.com" target="_blank">Canva Magic Studio</a></li>
+                                <li><a href="https://openai.com/dall-e-3" target="_blank">DALL E 3</a></li>
+                                <li><a href="https://designer.microsoft.com" target="_blank">Microsoft Designer</a></li>
+                                <li><a href="https://www.midjourney.com" target="_blank">Midjourney</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: SOCIAL -->
+                <div id="social" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Networks A-M</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                                <li><a href="https://bsky.app" target="_blank">Bluesky</a></li>
+                                <li><a href="https://discord.com" target="_blank">Discord</a></li>
+                                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+                                <li><a href="https://mastodon.social" target="_blank">Mastodon</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Networks N-Z</h2>
+                            <ul class="link-list">
+                                <li><a href="https://nextdoor.com" target="_blank">NextDoor</a></li>
+                                <li><a href="https://www.pinterest.com" target="_blank">Pinterest</a></li>
+                                <li><a href="https://www.roblox.com" target="_blank">Roblox</a></li>
+                                <li><a href="https://www.threads.net" target="_blank">Threads</a></li>
+                                <li><a href="https://x.com" target="_blank">X/Twitter</a></li>
+                                <li><a href="https://www.tumblr.com" target="_blank">Tumblr</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Collaboration & Chat</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.messenger.com" target="_blank">Facebook Messenger</a></li>
+                                <li><a href="https://chat.google.com" target="_blank">Google Chat</a></li>
+                                <li><a href="https://meet.google.com" target="_blank">Google Meet</a></li>
+                                <li><a href="https://voice.google.com" target="_blank">Google Voice</a></li>
+                                <li><a href="https://www.whatsapp.com" target="_blank">WhatsApp</a></li>
+                                <li><a href="https://zoom.us" target="_blank">Zoom</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: EMAIL -->
+                <div id="email" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Webmail Services</h2>
+                            <ul class="link-list">
+                                <li><a href="https://mail.google.com" target="_blank">Google Gmail</a></li>
+                                <li><a href="https://outlook.live.com" target="_blank">Outlook.com</a></li>
+                                <li><a href="https://mail.yahoo.com" target="_blank">Yahoo! Mail</a></li>
+                                <li><a href="https://www.icloud.com/mail" target="_blank">Apple iCloud Mail</a></li>
+                                <li><a href="https://mail.aol.com" target="_blank">AOL Webmail</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">ISP & Business</h2>
+                            <ul class="link-list">
+                                <li><a href="https://webmail.att.net" target="_blank">AT&T Webmail</a></li>
+                                <li><a href="https://webmail.comcast.net" target="_blank">Comcast Webmail</a></li>
+                                <li><a href="https://sso.godaddy.com" target="_blank">GoDaddy Webmail</a></li>
+                                <li><a href="https://outlook.office.com" target="_blank">Office 365 Webmail</a></li>
+                                <li><a href="https://webmail.sonic.net" target="_blank">Sonic Webmail</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: PHOTOS -->
+                <div id="photos" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Cloud Storage</h2>
+                            <ul class="link-list">
+                                <li><a href="https://photos.google.com" target="_blank">Google Photos</a></li>
+                                <li><a href="https://www.icloud.com/photos" target="_blank">Apple iCloud</a></li>
+                                <li><a href="https://www.dropbox.com" target="_blank">Dropbox Photos</a></li>
+                                <li><a href="https://onedrive.live.com" target="_blank">OneDrive Photos</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Galleries & Sharing</h2>
+                            <ul class="link-list">
+                                <li><a href="https://500px.com" target="_blank">500 Pixels</a></li>
+                                <li><a href="https://www.flickr.com" target="_blank">Flickr</a></li>
+                                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                                <li><a href="https://smugmug.com" target="_blank">SmugMug</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: LAW -->
+                <div id="law" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Legal Research</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.lexisnexis.com" target="_blank">Lexis-Nexis</a></li>
+                                <li><a href="https://www.westlaw.com" target="_blank">Westlaw</a></li>
+                                <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+                                <li><a href="https://www.findlaw.com" target="_blank">FindLaw</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">CA State & Federal</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.courts.ca.gov" target="_blank">California Courts</a></li>
+                                <li><a href="https://www.sos.ca.gov" target="_blank">Secretary of State</a></li>
+                                <li><a href="https://www.calbar.ca.gov" target="_blank">State Bar of California</a></li>
+                                <li><a href="https://www.cand.uscourts.gov" target="_blank">US District Court - N.D. CA</a></li>
+                                <li><a href="https://www.ca9.uscourts.gov" target="_blank">US 9th Circuit</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Bay Area Courts</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.sonoma.courts.ca.gov" target="_blank">Sonoma County Superior</a></li>
+                                <li><a href="https://www.marin.courts.ca.gov" target="_blank">Marin County Superior</a></li>
+                                <li><a href="https://www.sfsuperiorcourt.org" target="_blank">San Francisco Superior</a></li>
+                                <li><a href="https://www.alameda.courts.ca.gov" target="_blank">Alameda County Superior</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: BUSINESS (Banks, Brokers, Markets, Research) -->
+                <div id="business" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Banks</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.bankofamerica.com" target="_blank">Bank of America</a></li>
+                                <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                                <li><a href="https://www.citibank.com" target="_blank">Citibank</a></li>
+                                <li><a href="https://www.paypal.com" target="_blank">PayPal</a></li>
+                                <li><a href="https://www.wellsfargo.com" target="_blank">Wells Fargo</a></li>
+                                <li><a href="https://www.redwoodcu.org" target="_blank">Redwood Credit Union</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Brokers</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.schwab.com" target="_blank">Charles Schwab</a></li>
+                                <li><a href="https://www.etrade.com" target="_blank">E*TRADE</a></li>
+                                <li><a href="https://www.fidelity.com" target="_blank">Fidelity</a></li>
+                                <li><a href="https://www.tdameritrade.com" target="_blank">TD Ameritrade</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Markets</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.bloomberg.com" target="_blank">Bloomberg.com</a></li>
+                                <li><a href="https://www.cnbc.com" target="_blank">CNBC</a></li>
+                                <li><a href="https://finance.google.com" target="_blank">Google Finance</a></li>
+                                <li><a href="https://finance.yahoo.com" target="_blank">Yahoo! Finance</a></li>
+                                <li><a href="https://www.marketwatch.com" target="_blank">Market Watch</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Research & Tax</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.morningstar.com" target="_blank">Morningstar</a></li>
+                                <li><a href="https://www.irs.gov" target="_blank">Internal Revenue Service</a></li>
+                                <li><a href="https://www.bankrate.com" target="_blank">Bank Rate</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: TRAVEL (Airlines, Lodging, Guides, Maps) -->
+                <div id="travel" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Airlines</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.alaskaair.com" target="_blank">Alaska Airlines</a></li>
+                                <li><a href="https://www.aa.com" target="_blank">American Airlines</a></li>
+                                <li><a href="https://www.delta.com" target="_blank">Delta</a></li>
+                                <li><a href="https://www.southwest.com" target="_blank">Southwest</a></li>
+                                <li><a href="https://www.united.com" target="_blank">United</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Booking</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.google.com/flights" target="_blank">Google Flights</a></li>
+                                <li><a href="https://www.booking.com" target="_blank">Booking.com</a></li>
+                                <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
+                                <li><a href="https://www.expedia.com" target="_blank">Expedia</a></li>
+                                <li><a href="https://www.tripadvisor.com" target="_blank">TripAdvisor</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Guides & Routes</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.google.com/travel" target="_blank">Google Travel</a></li>
+                                <li><a href="https://www.rome2rio.com" target="_blank">Rome2Rio</a></li>
+                                <li><a href="https://www.lonelyplanet.com" target="_blank">Lonely Planet</a></li>
+                                <li><a href="https://www.yelp.com" target="_blank">Yelp</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Mapping</h2>
+                            <ul class="link-list">
+                                <li><a href="https://maps.google.com" target="_blank">Google Maps</a></li>
+                                <li><a href="https://www.bing.com/maps" target="_blank">Bing Maps</a></li>
+                                <li><a href="https://www.mapquest.com" target="_blank">MapQuest</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: MOVIES & TV -->
+                <div id="movies-tv" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Streaming Video</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.amazon.com/Prime-Video" target="_blank">Amazon Prime Video</a></li>
+                                <li><a href="https://tv.apple.com" target="_blank">Apple TV+</a></li>
+                                <li><a href="https://www.disneyplus.com" target="_blank">Disney+</a></li>
+                                <li><a href="https://www.max.com" target="_blank">HBO Max</a></li>
+                                <li><a href="https://www.hulu.com" target="_blank">Hulu</a></li>
+                                <li><a href="https://www.netflix.com" target="_blank">Netflix</a></li>
+                                <li><a href="https://www.peacocktv.com" target="_blank">Peacock</a></li>
+                                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Databases & Reviews</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.imdb.com" target="_blank">IMDb</a></li>
+                                <li><a href="https://www.rottentomatoes.com" target="_blank">Rotten Tomatoes</a></li>
+                                <li><a href="https://www.metacritic.com" target="_blank">MetaCritic</a></li>
+                                <li><a href="https://www.avclub.com" target="_blank">AV Club</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Industry News</h2>
+                            <ul class="link-list">
+                                <li><a href="https://deadline.com" target="_blank">Deadline Hollywood</a></li>
+                                <li><a href="https://variety.com" target="_blank">Variety</a></li>
+                                <li><a href="https://ew.com" target="_blank">Entertainment Weekly</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: ARTS (Music, Books, Pop Culture) -->
+                <div id="arts" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Music</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.spotify.com" target="_blank">Spotify</a></li>
+                                <li><a href="https://www.pandora.com" target="_blank">Pandora</a></li>
+                                <li><a href="https://tidal.com" target="_blank">Tidal</a></li>
+                                <li><a href="https://archive.org/details/etree" target="_blank">Etree / Live Music Archive</a></li>
+                                <li><a href="https://pitchfork.com" target="_blank">Pitchfork</a></li>
+                                <li><a href="https://www.rollingstone.com" target="_blank">Rolling Stone</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Books</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.amazon.com" target="_blank">Amazon.com</a></li>
+                                <li><a href="https://www.abebooks.com" target="_blank">AbeBooks</a></li>
+                                <li><a href="https://www.goodreads.com" target="_blank">GoodReads</a></li>
+                                <li><a href="http://www.sf-encyclopedia.com" target="_blank">SF Encyclopedia</a></li>
+                                <li><a href="https://www.powells.com" target="_blank">Powell's Books</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Magazines & Culture</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.theatlantic.com" target="_blank">Atlantic</a></li>
+                                <li><a href="https://www.newyorker.com" target="_blank">New Yorker</a></li>
+                                <li><a href="https://www.wired.com" target="_blank">Wired</a></li>
+                                <li><a href="https://www.theonion.com" target="_blank">The Onion</a></li>
+                                <li><a href="https://www.salon.com" target="_blank">Salon</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: REFERENCE -->
+                <div id="reference" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Quick Facts</h2>
+                            <ul class="link-list">
+                                <li><a href="https://en.wikipedia.org" target="_blank">Wikipedia</a></li>
+                                <li><a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a></li>
+                                <li><a href="https://www.merriam-webster.com" target="_blank">Merriam-Webster</a></li>
+                                <li><a href="https://www.snopes.com" target="_blank">Snopes</a></li>
+                                <li><a href="https://www.quora.com" target="_blank">Quora</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Government & Jobs</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.usa.gov" target="_blank">US Government Portal</a></li>
+                                <li><a href="https://www.loc.gov" target="_blank">Library of Congress</a></li>
+                                <li><a href="https://sfbay.craigslist.org" target="_blank">Craigslist</a></li>
+                                <li><a href="https://www.monster.com" target="_blank">Monster</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Science</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.nasa.gov" target="_blank">NASA</a></li>
+                                <li><a href="https://www.nationalgeographic.com" target="_blank">National Geographic</a></li>
+                                <li><a href="https://www.exploratorium.edu" target="_blank">Exploratorium</a></li>
+                                <li><a href="https://www.eurekalert.org" target="_blank">EurekAlert</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: HEALTH -->
+                <div id="health" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Directories</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.webmd.com" target="_blank">Web MD</a></li>
+                                <li><a href="https://www.mayoclinic.org" target="_blank">Mayo Clinic</a></li>
+                                <li><a href="https://www.medlineplus.gov" target="_blank">Medicine Net</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Portals & Coverage</h2>
+                            <ul class="link-list">
+                                <li><a href="https://healthy.kaiserpermanente.org" target="_blank">Kaiser Permanente</a></li>
+                                <li><a href="https://www.medicare.gov" target="_blank">Medicare.gov</a></li>
+                                <li><a href="https://www.healthcare.gov" target="_blank">HealthCare.gov</a></li>
+                                <li><a href="https://www.coveredca.com" target="_blank">Covered California</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: TECH NEWS -->
+                <div id="tech-news" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">My Columns</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.bruceb.com/news" target="_blank"><b>Bruceb News</b></a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Tech News Portals</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.theverge.com" target="_blank">The Verge</a></li>
+                                <li><a href="https://www.cnet.com" target="_blank">CNET News</a></li>
+                                <li><a href="https://techcrunch.com" target="_blank">TechCrunch</a></li>
+                                <li><a href="https://www.zdnet.com" target="_blank">ZDNet</a></li>
+                                <li><a href="https://www.theregister.com" target="_blank">The Register</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Windows & MS Focus</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.thurrott.com" target="_blank">Thurrott.com</a></li>
+                                <li><a href="https://www.windowscentral.com" target="_blank">Windows Central</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: WEB SERVICES -->
+                <div id="web-services" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">File Hosting</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.dropbox.com" target="_blank">Dropbox</a></li>
+                                <li><a href="https://drive.google.com" target="_blank">Google Drive</a></li>
+                                <li><a href="https://onedrive.live.com" target="_blank">OneDrive</a></li>
+                                <li><a href="https://www.box.com" target="_blank">Box.com</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Infrastructure</h2>
+                            <ul class="link-list">
+                                <li><a href="https://aws.amazon.com" target="_blank">Amazon Web Services</a></li>
+                                <li><a href="https://portal.azure.com" target="_blank">Microsoft Azure</a></li>
+                                <li><a href="https://admin.microsoft.com" target="_blank">M365 Admin Portal</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: GOOGLE -->
+                <div id="google" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Workspace</h2>
+                            <ul class="link-list">
+                                <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
+                                <li><a href="https://calendar.google.com" target="_blank">Google Calendar</a></li>
+                                <li><a href="https://docs.google.com" target="_blank">Google Docs</a></li>
+                                <li><a href="https://photos.google.com" target="_blank">Google Photos</a></li>
+                                <li><a href="https://keep.google.com" target="_blank">Google Keep</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Engines & Tools</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.google.com" target="_blank">Google Search</a></li>
+                                <li><a href="https://translate.google.com" target="_blank">Google Translate</a></li>
+                                <li><a href="https://news.google.com" target="_blank">Google News</a></li>
+                                <li><a href="https://maps.google.com" target="_blank">Google Maps</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Admin & Dev</h2>
+                            <ul class="link-list">
+                                <li><a href="https://search.google.com/search-console" target="_blank">Search Central</a></li>
+                                <li><a href="https://adsense.google.com" target="_blank">AdSense</a></li>
+                                <li><a href="https://business.google.com" target="_blank">Google Business Profile</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: MICROSOFT -->
+                <div id="microsoft" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Consumer Apps</h2>
+                            <ul class="link-list">
+                                <li><a href="https://outlook.live.com" target="_blank">Outlook.com</a></li>
+                                <li><a href="https://onedrive.live.com" target="_blank">OneDrive</a></li>
+                                <li><a href="https://www.onenote.com" target="_blank">OneNote</a></li>
+                                <li><a href="https://teams.live.com" target="_blank">Teams</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">365 Portals</h2>
+                            <ul class="link-list">
+                                <li><a href="https://admin.microsoft.com" target="_blank">M365 Admin Portal</a></li>
+                                <li><a href="https://portal.azure.com" target="_blank">Azure Portal</a></li>
+                                <li><a href="https://admin.exchange.microsoft.com" target="_blank">Exchange Admin</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: COMPUTERS -->
+                <div id="computers" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Vendors</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.dell.com" target="_blank">Dell</a></li>
+                                <li><a href="https://www.hp.com" target="_blank">HP</a></li>
+                                <li><a href="https://www.lenovo.com" target="_blank">Lenovo</a></li>
+                                <li><a href="https://www.apple.com" target="_blank">Apple</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Security Services</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.malwarebytes.com" target="_blank">MalwareBytes</a></li>
+                                <li><a href="https://www.avast.com" target="_blank">Avast Antivirus</a></li>
+                                <li><a href="https://www.kaspersky.com" target="_blank">Kaspersky</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: MOBILE -->
+                <div id="mobile" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Devices</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.apple.com/iphone" target="_blank">iPhone / iOS</a></li>
+                                <li><a href="https://store.google.com" target="_blank">Google Pixel Store</a></li>
+                                <li><a href="https://www.microsoft.com/surface" target="_blank">Surface Mobile</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Carriers</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.att.com" target="_blank">AT&T Wireless</a></li>
+                                <li><a href="https://fi.google.com" target="_blank">Google Fi</a></li>
+                                <li><a href="https://www.t-mobile.com" target="_blank">T-Mobile</a></li>
+                                <li><a href="https://www.verizon.com" target="_blank">Verizon Wireless</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: DOMAINS -->
+                <div id="domains" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Registrars</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.ionos.com" target="_blank">1and1.com</a></li>
+                                <li><a href="https://www.bluehost.com" target="_blank">BlueHost</a></li>
+                                <li><a href="https://www.godaddy.com" target="_blank">GoDaddy</a></li>
+                                <li><a href="https://www.namecheap.com" target="_blank">NameCheap</a></li>
+                                <li><a href="https://www.networksolutions.com" target="_blank">Network Solutions</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">DNS Tools</h2>
+                            <ul class="link-list">
+                                <li><a href="https://lookup.icann.org" target="_blank">ICANN Whois</a></li>
+                                <li><a href="https://mxtoolbox.com" target="_blank">MX Lookup</a></li>
+                                <li><a href="https://www.whatismyip.com" target="_blank">What is my IP Address</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- RIGHT FIXED SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Recent Writing</h3>
+                    <ul class="link-list">
+                        <li><a href="https://www.bruceb.com/news" target="_blank">The Revenge Of The Ginger Man</a></li>
+                        <li><a href="https://www.bruceb.com/news" target="_blank">Lolita and the Art of Suitcase Literature</a></li>
+                        <li><a href="https://www.bruceb.com/news" target="_blank">AI Business News Roundup</a></li>
+                        <li><a href="https://www.bruceb.com/news" target="_blank">AI Consumer Basics</a></li>
+                        <li><a href="https://www.bruceb.com/news" target="_blank">Harlan Ellison & Medea Signature Page</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Quick Links</h3>
+                    <ul class="link-list">
+                        <li><a href="https://www.bruceb.com/changelog" target="_blank">Bruceb Favorites Changelog</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <p>bruceb@bruceb.com • (707) 703-1601 • <a href="https://www.bruceb.com/disclaimer" target="_blank">Disclaimer</a></p>
+            <p style="margin-top: 10px;">© 1997 - 2026 Bruceb Consulting | All Rights Reserved | Website by Smart Monkey</p>
+        </footer>
+
+    </div>
+
+    <!-- TAB TOGGLE LOGIC -->
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show current active tab target
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            } else {
+                console.warn("Target tab block content not found for id: " + tabId);
+            }
+
+            // Mark clicked button active
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
