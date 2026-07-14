@@ -217,6 +217,25 @@
             text-transform: uppercase;
         }
 
+        /* Sidebar Logo Ads */
+        .sidebar-logo-ad {
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar-logo-ad img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            transition: opacity 0.15s ease;
+        }
+
+        .sidebar-logo-ad img:hover {
+            opacity: 0.95; /* Subtle hover highlight */
+        }
+
         /* --- FOOTER --- */
         footer {
             margin-top: 40px;
@@ -1027,8 +1046,18 @@
 
             <!-- RIGHT FIXED SIDEBAR -->
             <aside class="sidebar">
+            <!-- Amazon Store Ad -->
+                <a href="https://amzn.to/2tES6VI" class="sidebar-logo-ad" target="_blank">
+                    <img src="https://s14633.pcdn.co/wp-content/uploads/2025/01/amazon_logo_v1.png" alt="Amazon Store Logo">
+                </a>
+
+                <!-- Bruceb News Logo link -->
+                <a href="https://bruceb.com/news" class="sidebar-logo-ad" target="_blank">
+                    <img src="https://s14633.pcdn.co/wp-content/uploads/2025/01/bruceb-news-vertical-220-66.png" alt="Bruceb News Logo">
+                </a>
+                
                 <div class="sidebar-section">
-                    <h3 class="sidebar-title">Recent Writing</h3>
+                    <h3 class="sidebar-title">Recent News</h3>
                     <ul class="link-list">
                         <li><a href="https://www.bruceb.com/news" target="_blank">The Revenge Of The Ginger Man</a></li>
                         <li><a href="https://www.bruceb.com/news" target="_blank">Lolita and the Art of Suitcase Literature</a></li>
