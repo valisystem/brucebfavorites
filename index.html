@@ -52,10 +52,20 @@
             display: inline-block;
         }
 
-        .logo-img {
+      .logo-img {
             display: block;
-            height: 60px;
+            height: 60px; /* Default desktop height */
             width: auto;
+            max-width: 100%; /* Prevents the image from ever spilling wider than its box */
+            transition: height 0.2s ease;
+        }
+
+        /* --- MOBILE LOGO OPTIMIZATION --- */
+        /* Smoothly reduces the logo size on screens narrower than 768px */
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 44px; /* Reduced height perfectly proportioned for mobile viewing */
+            }
         }
 
 /* Header Menu in the Upper Right */
