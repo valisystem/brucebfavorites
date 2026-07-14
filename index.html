@@ -38,28 +38,26 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        /* --- HEADER SECTION --- */
+      /* --- HEADER SECTION --- */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center; /* Changed from flex-start to keep logo & menu vertically centered */
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 20px;
             margin-bottom: 25px;
         }
 
-        .header-left h1 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            font-weight: 800;
+        /* Logo styling */
+        .logo-link {
+            display: inline-block;
         }
 
-        .header-left .tagline {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 5px;
+        .logo-img {
+            display: block;
+            height: 60px; /* Adjust this value if you'd like the logo larger or smaller */
+            width: auto;
         }
-
         /* Header Menu in the Upper Right */
         .header-right-menu {
             display: flex;
@@ -257,11 +255,12 @@
 
     <div class="container">
         
-        <!-- HEADER (Left: Branding, Right: Menu) -->
+<!-- HEADER (Left: Branding Logo, Right: Menu) -->
         <header>
             <div class="header-left">
-                <h1>Bruceb Consulting</h1>
-                <div class="tagline">A simple directory of obvious places.</div>
+                <a href="https://www.bruceb.com" class="logo-link">
+                    <img src="https://s14633.pcdn.co/wp-content/uploads/2020/05/bruceb_logo_v8.png" alt="Bruceb Consulting Logo" class="logo-img">
+                </a>
             </div>
             <nav>
                 <ul class="header-right-menu">
