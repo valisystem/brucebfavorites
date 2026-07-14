@@ -49,15 +49,22 @@
             margin-bottom: 25px;
         }
 
-        .logo-link {
-            display: inline-block;
+       /* Prevent the logo wrapper from ever shrinking or distorting under flexbox pressure */
+        .header-left {
+            flex-shrink: 0; /* Forces the browser to keep the logo's exact proportions */
         }
 
-      .logo-img {
+        .logo-link {
+            display: inline-block;
+            line-height: 0; /* Removes any browser-default vertical spacing around the link */
+        }
+
+        .logo-img {
             display: block;
             height: 60px; /* Default desktop height */
-            width: auto;
-            max-width: 100%; /* Prevents the image from ever spilling wider than its box */
+            width: auto;  /* Tells the browser to calculate the width proportionally */
+            max-width: 100%;
+            object-fit: contain; /* Double-guards the aspect ratio by scaling within bounds */
             transition: height 0.2s ease;
         }
 
