@@ -125,6 +125,16 @@
             }
         }
 
+       .tab-navigation {
+            display: flex;
+            flex-wrap: wrap; /* Allows buttons to wrap to a second row instead of breaking out */
+            gap: 10px;       /* Adds neat spacing between wrapped rows of buttons */
+            margin-bottom: 25px;
+            
+            /* Constrains buttons to 100% width minus the 320px sidebar and the 30px gap */
+            max-width: calc(100% - 350px); 
+            box-sizing: border-box;
+        }
         .tab-button {
             background: #ffffff;
             border: 1px solid #ccc;
