@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruceb Favorites</title>
+    <style>
+        /* --- CORE LAYOUT & VARIABLES --- */
+        :root {
+            --primary-color: #003366; /* Deep blue branding */
+            --secondary-color: #0066cc; /* Link blue */
+            --bg-color: #f4f5f7;
+            --border-color: #e1e4e8;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header-left h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .header-left .tagline {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Header Menu in the Upper Right */
+        .header-right-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .header-right-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .header-right-menu a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* --- FIXED NAVIGATION BUTTONS (TABS) --- */
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            background: #eaeaea;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .tab-button {
+            background: #ffffff;
+            border: 1px solid #ccc;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #555;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.15s ease;
+        }
+
+        .tab-button:hover {
+            background: #f0f0f0;
+            color: var(--primary-color);
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: #ffffff;
+            border-color: var(--primary-color);
+        }
+
+        /* --- TWO-COLUMN BODY LAYOUT --- */
+        .page-body {
+            display: grid;
+            grid-template-columns: 1fr 300px; /* Left main area, right fixed sidebar */
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Main area grid for display cards */
+        .main-content-area {
+            min-height: 400px;
+        }
+
+        /* Dynamic Grid Layout */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns for large displays */
+            gap: 20px;
+        }
+
+        /* If 8 columns are preferred for TOP SITES, custom classes can override */
+        .links-grid.eight-cols {
+            grid-template-columns: repeat(4, 1fr); /* Default grid fallback */
+        }
+        @media (min-width: 1400px) {
+            .links-grid.eight-cols {
+                grid-template-columns: repeat(8, 1fr); /* Expands dynamically to 8 columns on large screens */
+            }
+        }
+
+        /* Hide content sections by default; JS shows active class */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* --- CARD STYLE FOR CATEGORIES --- */
+        .category-card {
+            background: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .category-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-list li {
+            margin-bottom: 6px;
+        }
+
+        .link-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .link-list a:hover {
+            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        /* --- FIXED RIGHT-HAND SIDEBAR --- */
+        .sidebar {
+            background: #fcfcfc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 1024px) {
+            .page-body {
+                grid-template-columns: 1fr; /* Stack sidebar below on smaller screens */
+            }
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER (Left: Branding, Right: Menu) -->
+        <header>
+            <div class="header-left">
+                <h1>Bruceb Consulting</h1>
+                <div class="tagline">A simple directory of obvious places.</div>
+            </div>
+            <nav>
+                <ul class="header-right-menu">
+                    <li><a href="https://www.bruceb.com">Home</a></li>
+                    <li><a href="https://www.bruceb.com/news">Bruceb News</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="https://www.bruceb.com/support">Support</a></li>
+                    <li><a href="https://www.bruceb.com/about">About</a></li>
+                    <li><a href="https://www.bruceb.com/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- FIXED TAB NAVIGATION ROW -->
+        <nav class="tab-navigation" aria-label="Favorites Categories">
+            <button class="tab-button active" onclick="switchTab('top-sites')">Top Sites</button>
+            <button class="tab-button" onclick="switchTab('news')">News</button>
+            <button class="tab-button" onclick="switchTab('search-ai')">Search / AI</button>
+            <button class="tab-button" onclick="switchTab('social')">Social</button>
+            <button class="tab-button" onclick="switchTab('email')">Email</button>
+            <button class="tab-button" onclick="switchTab('photos')">Photos</button>
+            <button class="tab-button" onclick="switchTab('law')">Law</button>
+            <button class="tab-button" onclick="switchTab('business')">Business</button>
+            <button class="tab-button" onclick="switchTab('travel')">Travel</button>
+            <button class="tab-button" onclick="switchTab('movies-tv')">Movies & TV</button>
+            <button class="tab-button" onclick="switchTab('arts')">Arts</button>
+            <button class="tab-button" onclick="switchTab('reference')">Reference</button>
+            <button class="tab-button" onclick="switchTab('health')">Health</button>
+            <button class="tab-button" onclick="switchTab('tech-news')">Tech News</button>
+            <button class="tab-button" onclick="switchTab('web-services')">Web Services</button>
+            <button class="tab-button" onclick="switchTab('google')">Google</button>
+            <button class="tab-button" onclick="switchTab('microsoft')">Microsoft</button>
+            <button class="tab-button" onclick="switchTab('computers')">Computers</button>
+            <button class="tab-button" onclick="switchTab('mobile')">Mobile</button>
+            <button class="tab-button" onclick="switchTab('domains')">Domains</button>
+        </nav>
+
+        <div class="page-body">
+            
+            <!-- LEFT MAIN CONTENT AREA (DYNAMIC TAB SECTIONS) -->
+            <main class="main-content-area">
+
+                <!-- TAB: TOP SITES (8 columns: News, Search, AI, Social, Mail, Online, Media, Travel) -->
+                <div id="top-sites" class="tab-content active">
+                    <div class="links-grid eight-cols">
+                        <section class="category-card">
+                            <h2 class="category-title">News</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.cnn.com" target="_blank">CNN</a></li>
+                                <li><a href="https://news.google.com" target="_blank">Google News</a></li>
+                                <li><a href="https://www.theguardian.com" target="_blank">The Guardian</a></li>
+                                <li><a href="https://www.nytimes.com" target="_blank">New York Times</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Search</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                                <li><a href="https://www.perplexity.ai" target="_blank">Perplexity</a></li>
+                                <li><a href="https://en.wikipedia.org" target="_blank">Wikipedia</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">AI</h2>
+                            <ul class="link-list">
+                                <li><a href="https://chatgpt.com" target="_blank">ChatGPT</a></li>
+                                <li><a href="https://gemini.google.com" target="_blank">Gemini</a></li>
+                                <li><a href="https://claude.ai" target="_blank">Claude</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Social</h2>
+                            <ul class="link-list">
+                                <li><a href="https://bsky.app" target="_blank">Bluesky</a></li>
+                                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                                <li><a href="https://www.reddit.com" target="_blank">Reddit</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Mail</h2>
+                            <ul class="link-list">
+                                <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
+                                <li><a href="https://outlook.live.com" target="_blank">Outlook.com</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Online</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.dropbox.com" target="_blank">Dropbox</a></li>
+                                <li><a href="https://drive.google.com" target="_blank">Google Drive</a></li>
+                                <li><a href="https://onedrive.live.com" target="_blank">OneDrive</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Media</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.netflix.com" target="_blank">Netflix</a></li>
+                                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Travel</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.airbnb.com" target="_blank">Airbnb</a></li>
+                                <li><a href="https://maps.google.com" target="_blank">Google Maps</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- TAB: BUSINESS (4 columns: Banks, Brokers, Markets, Research) -->
+                <div id="business" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Banks</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.bankofamerica.com" target="_blank">Bank of America</a></li>
+                                <li><a href="https://www.chase.com" target="_blank">Chase</a></li>
+                                <li><a href="https://www.citibank.com" target="_blank">Citibank</a></li>
+                                <li><a href="https://www.wellsfargo.com" target="_blank">Wells Fargo</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Brokers</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.schwab.com" target="_blank">Charles Schwab</a></li>
+                                <li><a href="https://www.etrade.com" target="_blank">E*TRADE</a></li>
+                                <li><a href="https://www.fidelity.com" target="_blank">Fidelity</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Markets</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.bloomberg.com" target="_blank">Bloomberg.com</a></li>
+                                <li><a href="https://www.cnbc.com" target="_blank">CNBC</a></li>
+                                <li><a href="https://finance.yahoo.com" target="_blank">Yahoo! Finance</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Research</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.morningstar.com" target="_blank">Morningstar</a></li>
+                                <li><a href="https://www.irs.gov" target="_blank">IRS</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- ADD OTHER TAB SECTIONS (E.G., LAW, TRAVEL, COMPUTER) FOLLOWING THE SAME STRUCTURE -->
+                <div id="law" class="tab-content">
+                    <div class="links-grid">
+                        <section class="category-card">
+                            <h2 class="category-title">Research</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.lexisnexis.com" target="_blank">Lexis-Nexis</a></li>
+                                <li><a href="https://www.westlaw.com" target="_blank">Westlaw</a></li>
+                            </ul>
+                        </section>
+                        <section class="category-card">
+                            <h2 class="category-title">Courts</h2>
+                            <ul class="link-list">
+                                <li><a href="https://www.courts.ca.gov" target="_blank">California Courts</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- RIGHT FIXED SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Recent News</h3>
+                    <ul class="link-list">
+                        <li><a href="#" target="_blank">The Revenge Of The Ginger Man</a></li>
+                        <li><a href="#" target="_blank">Lolita and the Art of Suitcase Literature</a></li>
+                        <li><a href="#" target="_blank">AI Business News Roundup</a></li>
+                        <li><a href="#" target="_blank">AI Consumer Basics</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Quick Links</h3>
+                    <ul class="link-list">
+                        <li><a href="https://www.bruceb.com/changelog" target="_blank">Bruceb Favorites Changelog</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <p>bruceb@bruceb.com • (707) 703-1601 • <a href="#">Disclaimer</a></p>
+            <p style="margin-top: 10px;">© 1997 - 2026 Bruceb Consulting | All Rights Reserved | Website by Smart Monkey</p>
+        </footer>
+
+    </div>
+
+    <!-- SIMPLE JAVASCRIPT FOR TAB TOGGLING -->
+    <script>
+        function switchTab(tabId) {
+            // Remove active status from all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active styling from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show current active tab content if it exists
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            } else {
+                console.warn("Section not yet populated for tab ID: " + tabId);
+            }
+
+            // Find clicked button and add active styling
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
