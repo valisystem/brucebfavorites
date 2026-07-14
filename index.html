@@ -1103,37 +1103,54 @@
             // Mark clicked button active
             event.currentTarget.classList.add('active');
         }
-        // --- DYNAMIC RSS FEED LOGIC ---
-        // Fetches your latest 5 articles from bruceb.com/news automatically
+       // --- DYNAMIC RSS FEED LOGIC (Bypassing CORS) ---
+        // Fetches your latest 5 articles from bruceb.com/news via AllOrigins proxy
         function loadRecentArticles() {
             const feedUrl = 'https://www.bruceb.com/news/feed/';
-            const apiEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+            // We use the AllOrigins proxy to clean up cross-domain security blocks
+            const apiEndpoint = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`;
             const container = document.getElementById('dynamic-recent-news');
 
             fetch(apiEndpoint)
-                .then(response => response.json())
+                .then(response => {
+                    if (response.ok) return response.json();
+                    throw new Error('Network response was not ok.');
+                })
                 .then(data => {
-                    if (data.status === 'ok' && data.items && data.items.length > 0) {
-                        // Clear out the "Loading latest articles..." placeholder
-                        container.innerHTML = '';
+                    // AllOrigins wraps the raw XML feed inside data.contents
+                    if (data && data.contents) {
+                        // Parse the raw XML text into an XML Document Object
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+                        const items = xmlDoc.getElementsByTagName('item');
                         
-                        // Grab the latest 5 items
-                        const latestItems = data.items.slice(0, 5);
-                        
-                        latestItems.forEach(item => {
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            a.href = item.link;
-                            a.target = '_blank';
+                        if (items.length > 0) {
+                            // Clear out the "Loading latest articles..." placeholder
+                            container.innerHTML = '';
                             
-                            // Decodes basic HTML entities if present in the titles
-                            a.textContent = item.title.replace(/&#8217;/g, "'").replace(/&#8211;/g, "–");
-                            
-                            li.appendChild(a);
-                            container.appendChild(li);
-                        });
+                            // Loop through the first 5 items
+                            const maxItems = Math.min(items.length, 5);
+                            for (let i = 0; i < maxItems; i++) {
+                                const title = items[i].getElementsByTagName('title')[0].textContent;
+                                const link = items[i].getElementsByTagName('link')[0].textContent;
+                                
+                                const li = document.createElement('li');
+                                const a = document.createElement('a');
+                                a.href = link;
+                                a.target = '_blank';
+                                
+                                // Decode common WordPress entities for clean text
+                                a.textContent = title.replace(/&#8217;/g, "'")
+                                                     .replace(/&#8211;/g, "–")
+                                                     .replace(/&#038;/g, "&");
+                                
+                                li.appendChild(a);
+                                container.appendChild(li);
+                            }
+                        } else {
+                            showFallbackLink(container);
+                        }
                     } else {
-                        // Fail gracefully: show a direct link back to your news page
                         showFallbackLink(container);
                     }
                 })
