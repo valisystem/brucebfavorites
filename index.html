@@ -58,23 +58,27 @@
             width: auto;
         }
 
-        /* Header Menu in the Upper Right */
+ /* Header Menu in the Upper Right */
         .header-right-menu {
             display: flex;
-            gap: 20px;
+            gap: 24px; /* Slightly wider spacing to match Divi's layout */
             list-style: none;
         }
 
         .header-right-menu a {
-            color: var(--text-color);
+            /* Imports and uses 'Open Sans' with standard fallbacks */
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            color: #666666; /* Charcoal gray matching your main site menu */
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 600; /* Semi-bold weight */
+            font-size: 14px; /* Exact font size used in your WordPress header */
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
         }
 
         .header-right-menu a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
+            color: #003366; /* Changes to your brand's deep blue on hover */
+            text-decoration: none; /* Keeps it clean without an underline on hover */
         }
 
         /* --- FIXED NAVIGATION BUTTONS (TABS) --- */
