@@ -1103,48 +1103,46 @@
             // Mark clicked button active
             event.currentTarget.classList.add('active');
         }
-      // --- DYNAMIC RSS FEED LOGIC (High-Reliability CORS Proxy) ---
-        // Fetches your latest 5 articles from bruceb.com/news via CorsProxy.io
+     // --- DYNAMIC RSS FEED LOGIC (High-Reliability & Free) ---
+        // Fetches your latest 5 articles from bruceb.com/news
         function loadRecentArticles() {
             const feedUrl = 'https://www.bruceb.com/news/feed/';
-            // We use the ultra-fast CorsProxy.io CDN to cleanly bypass cross-domain browser blocks
-            const apiEndpoint = `https://corsproxy.io/?url=${encodeURIComponent(feedUrl)}`;
+            
+            // Using a completely free and open API designed specifically for parsing RSS to JSON on live domains
+            const apiEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
             const container = document.getElementById('dynamic-recent-news');
 
             fetch(apiEndpoint)
                 .then(response => {
-                    if (response.ok) return response.text(); // Parse directly as text
+                    if (response.ok) return response.json();
                     throw new Error('Network response was not ok.');
                 })
-                .then(xmlText => {
-                    // Parse the raw XML string into a DOM Document
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-                    const items = xmlDoc.getElementsByTagName('item');
-                    
-                    if (items.length > 0) {
+                .then(data => {
+                    if (data && data.status === 'ok' && data.items && data.items.length > 0) {
                         // Clear out the "Loading latest articles..." placeholder
                         container.innerHTML = '';
                         
                         // Limit loop strictly to the latest 5 items
-                        const maxItems = Math.min(items.length, 5);
-                        for (let i = 0; i < maxItems; i++) {
-                            const title = items[i].getElementsByTagName('title')[0].textContent;
-                            const link = items[i].getElementsByTagName('link')[0].textContent;
-                            
+                        const latestItems = data.items.slice(0, 5);
+                        
+                        latestItems.forEach(item => {
                             const li = document.createElement('li');
                             const a = document.createElement('a');
-                            a.href = link;
+                            a.href = item.link;
                             a.target = '_blank';
                             
-                            // Decode standard WordPress character entities
-                            a.textContent = title.replace(/&#8217;/g, "'")
+                            // Decode standard WordPress character entities securely
+                            let titleText = item.title;
+                            titleText = titleText.replace(/&#8217;/g, "'")
                                                  .replace(/&#8211;/g, "–")
-                                                 .replace(/&#038;/g, "&");
+                                                 .replace(/&#038;/g, "&")
+                                                 .replace(/&amp;/g, "&");
+                                                 
+                            a.textContent = titleText;
                             
                             li.appendChild(a);
                             container.appendChild(li);
-                        }
+                        });
                     } else {
                         showFallbackLink(container);
                     }
@@ -1158,7 +1156,7 @@
         // Fallback helper in case of network blocks
         function showFallbackLink(container) {
             container.innerHTML = `
-                <li><a href="https://www.bruceb.com/news" target="_blank">CORS Visit Bruceb News for the latest articles</a></li>
+                <li><a href="https://www.bruceb.com/news" target="_blank">FEEDGRABBER Visit Bruceb News for the latest articles</a></li>
             `;
         }
 
