@@ -1058,12 +1058,9 @@
                 
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Recent News</h3>
-                    <ul class="link-list">
-                        <li><a href="https://www.bruceb.com/news" target="_blank">The Revenge Of The Ginger Man</a></li>
-                        <li><a href="https://www.bruceb.com/news" target="_blank">Lolita and the Art of Suitcase Literature</a></li>
-                        <li><a href="https://www.bruceb.com/news" target="_blank">AI Business News Roundup</a></li>
-                        <li><a href="https://www.bruceb.com/news" target="_blank">AI Consumer Basics</a></li>
-                        <li><a href="https://www.bruceb.com/news" target="_blank">Harlan Ellison & Medea Signature Page</a></li>
+              <!-- The dynamic links will load right here automatically -->
+                    <ul class="link-list" id="dynamic-recent-news">
+                        <li>Loading latest articles...</li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
@@ -1106,6 +1103,55 @@
             // Mark clicked button active
             event.currentTarget.classList.add('active');
         }
+        // --- DYNAMIC RSS FEED LOGIC ---
+        // Fetches your latest 5 articles from bruceb.com/news automatically
+        function loadRecentArticles() {
+            const feedUrl = 'https://www.bruceb.com/news/feed/';
+            const apiEndpoint = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+            const container = document.getElementById('dynamic-recent-news');
+
+            fetch(apiEndpoint)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'ok' && data.items && data.items.length > 0) {
+                        // Clear out the "Loading latest articles..." placeholder
+                        container.innerHTML = '';
+                        
+                        // Grab the latest 5 items
+                        const latestItems = data.items.slice(0, 5);
+                        
+                        latestItems.forEach(item => {
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            a.href = item.link;
+                            a.target = '_blank';
+                            
+                            // Decodes basic HTML entities if present in the titles
+                            a.textContent = item.title.replace(/&#8217;/g, "'").replace(/&#8211;/g, "–");
+                            
+                            li.appendChild(a);
+                            container.appendChild(li);
+                        });
+                    } else {
+                        // Fail gracefully: show a direct link back to your news page
+                        showFallbackLink(container);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching RSS feed:', error);
+                    showFallbackLink(container);
+                });
+        }
+
+        // Fallback helper in case of network blocks
+        function showFallbackLink(container) {
+            container.innerHTML = `
+                <li><a href="https://www.bruceb.com/news" target="_blank">Visit Bruceb News for the latest articles</a></li>
+            `;
+        }
+
+        // Trigger the loader automatically as soon as the page loads
+        window.addEventListener('DOMContentLoaded', loadRecentArticles);
     </script>
 </body>
 </html>
